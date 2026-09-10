@@ -1,6 +1,8 @@
 package com.test.logic;
 
 import java.util.List;
+
+import com.test.enums.*;
 import com.test.objects.*;
 
 public class Movement {
@@ -37,6 +39,10 @@ public class Movement {
         if (Validation.isValidPosMovement(changeX, changeY, object, boards)) {
             object.setX(object.getX() + changeX);
             object.setY(object.getY() + changeY);
+
+            if (object instanceof Entity entity) {
+                Animation.animate(entity, AnimationType.PLAYER_WALKING);
+            }
         }
     }
 }

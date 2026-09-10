@@ -18,6 +18,7 @@ public class GameObject {
     }
 
     public void setTiles(Tile[][] tiles) {this.tiles = tiles;}
+    public void setTilemap(Tilemap tilemap) {this.tilemap = tilemap;}
     public void setTile(Tile t, int x, int y) {tiles[y][x] = t;}
     public void setX(int x) {this.x = x;}
     public void setY(int y) {this.y = y;}

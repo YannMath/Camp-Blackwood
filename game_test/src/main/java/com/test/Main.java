@@ -6,9 +6,7 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.test.logic.*;
-import com.test.objects.Board;
-import com.test.objects.GameObject;
-import com.test.objects.Player;
+import com.test.objects.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,9 +37,10 @@ public class Main {
         Input.init(screen);   // Initialize the static Input class
 
         List<GameObject> gameObjects = new ArrayList<>();
-
+        List<Entity> entities = new ArrayList<>(); 
         Player player = new Player("player", entityBoard, 2, 20);
         gameObjects.add(player);
+        entities.add(player);
         GameObject bomb = new GameObject("test-bomb", foregroundBoard, 30, 37);
         gameObjects.add(bomb);
         GameObject house = new GameObject("house", foregroundBoard, 20, 20);
@@ -52,6 +51,7 @@ public class Main {
         gameObjects.add(test);
 
         Movement.init(player, boards);
+        Animation.init();
 
         try {
             DrawComponent.drawBorder(boards, uiBoard, "test_ui");
@@ -60,6 +60,9 @@ public class Main {
 
             while (running) {
                 Input.getInput();
+                for (Entity e : entities) {
+                    Animation.update(e);
+                }
                 DrawComponent.clearBoard(entityBoard);
                 DrawComponent.clearBoard(foregroundBoard);
                 for (GameObject object : gameObjects) {
