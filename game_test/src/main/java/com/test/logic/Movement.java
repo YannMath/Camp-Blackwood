@@ -44,5 +44,8 @@ public class Movement {
                 Animation.animate(entity, AnimationType.PLAYER_WALKING);
             }
         }
+        else {
+            new Sound().play("ouch.wav");
+        }
     }
 }

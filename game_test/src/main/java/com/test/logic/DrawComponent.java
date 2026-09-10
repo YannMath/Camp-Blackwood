@@ -25,6 +25,8 @@ public class DrawComponent {
                 board.getTile(k, j).setChar('.');
             }
         }
+        
+        // TODO: Implement working UI
 
         Tilemap tm = ConvertTileMaps.convertFile("ui/" + uiString + ".txt");
 
@@ -42,7 +44,7 @@ public class DrawComponent {
 
                     tile.setChar(characterMap[y][x]);
                     tile.setBackground(background[y][x]);
-                    tile.setForeground(foreground[y][x]);
+                    tile.setForeground(foreground[y][x]); 
 
                     for (Board b: boards) {
                         int targetX = boardX + (board.getX_offset() - b.getX_offset());
