@@ -62,16 +62,20 @@ public class DrawComponent {
     }
 
     public static void drawObject(Board board, GameObject object, int start_x, int start_y) throws IOException {
-        for (Tile t : object.getTiles()) {
-            t.setChar(' ');
-            t.setBackground(TextColor.ANSI.DEFAULT);
-            t.setForeground(TextColor.ANSI.DEFAULT);
-        }
-        object.getTiles().clear();
         Tilemap tm = object.getTilemap();
         char[][] characterMap = tm.getSprite();
         TextColor[][] background = tm.getBackground();
         TextColor[][] foreground = tm.getForeground();
+        
+        object.setTiles(new Tile[characterMap.length][characterMap[0].length]);
+        for (Tile[] tArray : object.getTiles()) {
+            for (Tile t : tArray) {
+                if (t == null) break;
+                t.setChar(' ');
+                t.setBackground(TextColor.ANSI.DEFAULT);
+                t.setForeground(TextColor.ANSI.DEFAULT);
+            }
+        }
 
         for (int y = 0; y < characterMap.length; y++) {
             for (int x = 0; x < characterMap[y].length; x++) {
@@ -85,7 +89,7 @@ public class DrawComponent {
                     tile.setBackground(background[y][x]);
                     tile.setForeground(foreground[y][x]);
 
-                    object.addTile(tile);
+                    object.setTile(tile, x, y);
                     tile.setParent(object);
                     tile.setOccupied(true);
                 }
