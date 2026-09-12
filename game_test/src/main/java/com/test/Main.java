@@ -26,10 +26,8 @@ public class Main {
         boards.add(entityBoard);
         Board foregroundBoard = new Board(50, 120, 0, 0, true); 
         boards.add(foregroundBoard);
-        Interface uiBoard = new Interface(50, 120, 0, 0); 
+        Interface uiBoard = ConvertUI.convertUI("cabin_test");
         renderer.setDefaultInterface(uiBoard);
-        Tile[] healthArea = {uiBoard.getTile(4, 3), uiBoard.getTile(5, 3), uiBoard.getTile(6, 3), uiBoard.getTile(7, 3), uiBoard.getTile(8, 3), uiBoard.getTile(9, 3), uiBoard.getTile(10, 3), uiBoard.getTile(11, 3), uiBoard.getTile(12, 3), uiBoard.getTile(13, 3)};
-        uiBoard.setInformationArea("health", healthArea);
         
         Terminal terminal = new DefaultTerminalFactory()
             .setPreferTerminalEmulator(true)
@@ -72,7 +70,7 @@ public class Main {
                 for (GameObject object : gameObjects) {
                     DrawComponent.drawObject(object.getBoard(), object, object.getX(), object.getY());
                 }   
-                DrawComponent.drawBorder(boards, uiBoard, "test_ui");
+                DrawComponent.drawBorder(boards, uiBoard);
                 screen.clear();          // deletes the BUFFER (not the Terminal!)
                 renderer.renderGame(boards);
                 screen.refresh();    
