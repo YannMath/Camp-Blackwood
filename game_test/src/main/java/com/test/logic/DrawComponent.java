@@ -19,8 +19,8 @@ public class DrawComponent {
         }
     }
 
-    public static void drawBorder(List<Board> boards, Interface ui, String uiString) throws IOException {
-        Tilemap tm = ConvertTileMaps.convertFile("ui/" + uiString + ".txt");
+    public static void drawBorder(List<Board> boards, Interface ui) throws IOException {
+        Tilemap tm = ui.getTilemap();
 
         char[][] characterMap = tm.getSprite();
         TextColor[][] background = tm.getBackground();

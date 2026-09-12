@@ -6,12 +6,14 @@ import java.util.HashMap;
 import com.test.objects.InformationAreas.InformationAreaBuilder;
 
 public class Interface extends Board {
-    HashMap<String, InformationArea> infoMap = new HashMap<>();
-    List<String> currentInfoAreas = new ArrayList<>();
+    private HashMap<String, InformationArea> infoMap = new HashMap<>();
+    private List<String> currentInfoAreas = new ArrayList<>();
+    private Tilemap tm;
     private Player player;
 
-    public Interface(int rows, int cols, int y_offset, int x_offset) {
+    public Interface(int rows, int cols, int y_offset, int x_offset, Tilemap tm) {
         super(rows, cols, y_offset, x_offset, false);
+        this.tm = tm;
     }
 
     public void setInformationArea(String name, Tile[] tiles) {
@@ -25,6 +27,8 @@ public class Interface extends Board {
     }
 
     public void setPlayer(Player player) {this.player = player;}
+    public void setTilemap(Tilemap tm) {this.tm = tm;}
 
     public Player getPlayer() {return player;}
+    public Tilemap getTilemap() {return tm;}
 }
