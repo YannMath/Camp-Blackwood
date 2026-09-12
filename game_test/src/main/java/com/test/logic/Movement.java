@@ -41,11 +41,12 @@ public class Movement {
             object.setY(object.getY() + changeY);
 
             if (object instanceof Entity entity) {
-                Animation.animate(entity, AnimationType.PLAYER_WALKING);
+                Animation.animate(entity, AnimationType.PLAYER_WALKING); // TODO: Make the animations work for other entities too
             }
         }
         else {
-            new Sound().play("ouch.wav");
+            new Sound().play("ouch.wav"); 
+            if (object instanceof Player player) player.receiveDamage(10); // TODO: Remove this. It only serves ui testing purposes
         }
     }
 }

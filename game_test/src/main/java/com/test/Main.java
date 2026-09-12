@@ -20,14 +20,16 @@ public class Main {
         renderer.setCamera(playerCamera);
 
         List<Board> boards = new ArrayList<>();
-        Board backgroundBoard = new Board(50, 120, 0, 0, false, false); 
+        Board backgroundBoard = new Board(50, 120, 0, 0, false); 
         boards.add(backgroundBoard);
-        Board entityBoard = new Board(48, 118, 1, 1, true, false);     
+        Board entityBoard = new Board(50, 120, 0, 0, true);     
         boards.add(entityBoard);
-        Board foregroundBoard = new Board(48, 118, 1, 1, true, false); 
+        Board foregroundBoard = new Board(50, 120, 0, 0, true); 
         boards.add(foregroundBoard);
-        Board uiBoard = new Board(50, 120, 0, 0, false, true); 
-        boards.add(uiBoard);
+        Interface uiBoard = new Interface(50, 120, 0, 0); 
+        renderer.setDefaultInterface(uiBoard);
+        Tile[] healthArea = {uiBoard.getTile(4, 3), uiBoard.getTile(5, 3), uiBoard.getTile(6, 3), uiBoard.getTile(7, 3), uiBoard.getTile(8, 3), uiBoard.getTile(9, 3), uiBoard.getTile(10, 3), uiBoard.getTile(11, 3), uiBoard.getTile(12, 3), uiBoard.getTile(13, 3)};
+        uiBoard.setInformationArea("health", healthArea);
         
         Terminal terminal = new DefaultTerminalFactory()
             .setPreferTerminalEmulator(true)
@@ -46,6 +48,7 @@ public class Main {
         gameObjects.add(player);
         entities.add(player);
         playerCamera.follow(player);
+        uiBoard.setPlayer(player);
         GameObject bomb = new GameObject("test-bomb", foregroundBoard, 30, 37);
         gameObjects.add(bomb);
         GameObject house = new GameObject("house", foregroundBoard, 20, 20);
@@ -57,8 +60,6 @@ public class Main {
         Animation.init();
 
         try {
-            DrawComponent.drawBorder(boards, uiBoard, "test_ui");
-
             boolean running = true;
 
             while (running) {
@@ -71,6 +72,7 @@ public class Main {
                 for (GameObject object : gameObjects) {
                     DrawComponent.drawObject(object.getBoard(), object, object.getX(), object.getY());
                 }   
+                DrawComponent.drawBorder(boards, uiBoard, "test_ui");
                 screen.clear();          // deletes the BUFFER (not the Terminal!)
                 renderer.renderGame(boards);
                 screen.refresh();    

@@ -19,28 +19,30 @@ public class DrawComponent {
         }
     }
 
-    public static void drawBorder(List<Board> boards, Board board, String uiString) throws IOException {
+    public static void drawBorder(List<Board> boards, Interface ui, String uiString) throws IOException {
         Tilemap tm = ConvertTileMaps.convertFile("ui/" + uiString + ".txt");
 
         char[][] characterMap = tm.getSprite();
         TextColor[][] background = tm.getBackground();
         TextColor[][] foreground = tm.getForeground();
-        
-        // TODO: Implement working UI
 
         for (int y = 0; y < characterMap.length; y++) {
             for (int x = 0; x < characterMap[y].length; x++) {
-                int boardX = x;
-                int boardY = y;
+                int uiX = x;
+                int uiY = y;
 
-                if (Validation.isValidPos(boardX, boardY, board)) {
-                    Tile tile = board.getTile(boardX, boardY);
+                if (Validation.isValidPos(uiX, uiY, ui)) {
+                    Tile tile = ui.getTile(uiX, uiY);
 
                     tile.setChar(characterMap[y][x]);
                     tile.setBackground(background[y][x]);
                     tile.setForeground(foreground[y][x]); 
                 }
             }
+        }
+
+        for (InformationArea infoArea : ui.getCurrentInfoFields()) {
+            infoArea.update(ui.getPlayer());
         }
     }
 

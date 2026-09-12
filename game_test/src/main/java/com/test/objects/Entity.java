@@ -17,7 +17,10 @@ public class Entity extends GameObject {
 
     public void setEntityState(AnimationType entityState) {this.entityState = entityState;}
     public void addHealth(int addedHealth) {this.health += addedHealth; if (health > maxHealth) health = maxHealth;}
+    public void receiveDamage(int damage) {this.health -= damage; if (health < 0) health = 0; System.out.println("Entity received damage");}
 
     public AnimationType getEntityState() {return entityState;}
+    public int getHealth() {return health;}
+    public int getMaxHealth() {return maxHealth;}
     public boolean isDead() {return health <= 0;}
 }

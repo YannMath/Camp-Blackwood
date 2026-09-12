@@ -7,15 +7,13 @@ public class Board {
     private final int x_offset;
     private Tile[][] board;
     private final boolean collision;
-    private final boolean ui;
 
-    public Board(int rows, int cols, int y_offset, int x_offset, boolean collision, boolean ui) {
+    public Board(int rows, int cols, int y_offset, int x_offset, boolean collision) {
         this.rows = rows;
         this.cols = cols;
         this.y_offset = y_offset;
         this.x_offset = x_offset;
         this.collision = collision;
-        this.ui = ui;
 
         board = new Tile[rows][cols];
 
@@ -32,5 +30,4 @@ public class Board {
     public int getY_offset() {return y_offset;}
     public int getX_offset() {return x_offset;}
     public boolean hasCollision() {return collision;}
-    public boolean isUi() {return ui;}
 }

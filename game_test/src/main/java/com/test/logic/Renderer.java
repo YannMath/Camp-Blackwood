@@ -10,6 +10,7 @@ import com.googlecode.lanterna.graphics.*;
 public class Renderer {
     private Screen screen;
     private Camera camera;
+    private Interface ui;
 
     public Renderer() {
     }
@@ -25,13 +26,17 @@ public class Renderer {
             for (int j = 0; j < b.height(); j++) {
                 for (int k = 0; k < b.width(); k++) {
                     Tile t = b.getTile(k, j);
-                    if (b.isUi())
-                        drawTile(tg, t, k + b.getX_offset(), j + b.getY_offset(), defaultBackground);
-                    else 
                         drawTile(tg, t, k + b.getX_offset() + camera.getX(), j + b.getY_offset() + camera.getY(), defaultBackground);
                 }
             }
             defaultBackground = false;
+        }
+
+        for (int j = 0; j < ui.height(); j++) {
+            for (int k = 0; k < ui.width(); k++) {
+                Tile t = ui.getTile(k, j);
+                    drawTile(tg, t, k + ui.getX_offset(), j + ui.getY_offset(), false);
+            }
         }
     }
 
@@ -57,4 +62,5 @@ public class Renderer {
 
     public void setScreen(Screen screen) {this.screen = screen;}
     public void setCamera(Camera camera) {this.camera = camera;}
+    public void setDefaultInterface(Interface defaultInterface) {this.ui = defaultInterface;}
     }

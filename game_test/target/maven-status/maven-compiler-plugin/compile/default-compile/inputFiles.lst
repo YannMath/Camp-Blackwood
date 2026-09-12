@@ -13,6 +13,10 @@ F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Board.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Camera.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Entity.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\GameObject.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationArea.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationAreas\HealthArea.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationAreas\InformationAreaBuilder.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Interface.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Player.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Tile.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Tilemap.java
