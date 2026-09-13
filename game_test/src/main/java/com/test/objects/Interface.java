@@ -10,6 +10,7 @@ public class Interface extends Board {
     private List<String> currentInfoAreas = new ArrayList<>();
     private Tilemap tm;
     private Player player;
+    private GameState gameState;
 
     public Interface(int rows, int cols, int y_offset, int x_offset, Tilemap tm) {
         super(rows, cols, y_offset, x_offset, false);
@@ -28,7 +29,9 @@ public class Interface extends Board {
 
     public void setPlayer(Player player) {this.player = player;}
     public void setTilemap(Tilemap tm) {this.tm = tm;}
+    public void setGameState(GameState gs) {this.gameState = gs;}
 
     public Player getPlayer() {return player;}
     public Tilemap getTilemap() {return tm;}
+    public GameState getGameState() {return gameState;}
 }

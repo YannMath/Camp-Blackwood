@@ -13,6 +13,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws Exception {
+        GameState gameSate = new GameState();
         Renderer renderer = new Renderer();
         Camera playerCamera = new Camera();
         playerCamera.setFovX(120);
@@ -27,6 +28,7 @@ public class Main {
         Board foregroundBoard = new Board(50, 120, 0, 0, true); 
         boards.add(foregroundBoard);
         Interface uiBoard = ConvertUI.convertUI("cabin_test");
+        uiBoard.setGameState(gameSate);
         renderer.setDefaultInterface(uiBoard);
         
         Terminal terminal = new DefaultTerminalFactory()

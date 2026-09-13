@@ -11,6 +11,8 @@ public final class InformationAreaBuilder {
         switch (name) {
             case "health":
                 return new HealthArea(tiles);
+            case "name":
+                return new NameArea(tiles);
             default:
                 throw new IllegalArgumentException("Unknown information area: " + name);
         }
