@@ -18,7 +18,15 @@ public class NameArea extends InformationArea {
         playerName = player.getName();
         for (int i = 0; i < playerName.length(); i++) {
             boolean longEnough = isLongEnough(i);
-            if (longEnough) {tiles[i].setChar(playerName.charAt(i)); tiles[i].setForeground(tiles[0].getForegroundColor());}
+            if (longEnough) {
+                for (int c = 0; c < playerName.length(); c++) {
+                    tiles[c].setChar(playerName.charAt(c)); tiles[c].setForeground(tiles[0].getForegroundColor());
+                }
+                for (int s = playerName.length(); s < tiles.length; s++) {
+                    tiles[s].setChar(' '); tiles[s].setForeground(tiles[0].getForegroundColor());
+                }
+
+            }
             else {
                 tiles[i - 1].setChar('.');
                 tiles[i - 2].setChar('.');
