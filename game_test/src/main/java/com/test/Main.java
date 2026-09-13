@@ -42,7 +42,7 @@ public class Main {
 
         List<GameObject> gameObjects = new ArrayList<>();
         List<Entity> entities = new ArrayList<>(); 
-        Player player = new Player("player", entityBoard, 2, 20, 100);
+        Player player = new Player("player", entityBoard, 2, 20, 100, "Chris");
         gameObjects.add(player);
         entities.add(player);
         playerCamera.follow(player);
@@ -51,8 +51,6 @@ public class Main {
         gameObjects.add(bomb);
         GameObject house = new GameObject("house", foregroundBoard, 20, 20);
         gameObjects.add(house);
-        GameObject water2 = new GameObject("water2", foregroundBoard, 60, 40);
-        gameObjects.add(water2);
 
         Movement.init(player, boards);
         Animation.init();
