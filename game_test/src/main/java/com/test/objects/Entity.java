@@ -8,11 +8,13 @@ public class Entity extends GameObject {
     private AnimationType entityState;
     private int maxHealth;
     private int health;
+    private final String name;
 
-    public Entity(String filename, Board board, int x, int y, int maxHealth) throws IOException {
+    public Entity(String filename, Board board, int x, int y, int maxHealth, String name) throws IOException {
         super(filename, board, x, y);
         this.maxHealth = maxHealth;
         this.health = maxHealth;
+        this.name = name;
     }
 
     public void setEntityState(AnimationType entityState) {this.entityState = entityState;}
@@ -23,4 +25,5 @@ public class Entity extends GameObject {
     public int getHealth() {return health;}
     public int getMaxHealth() {return maxHealth;}
     public boolean isDead() {return health <= 0;}
+    public String getName() {return name;}
 }
