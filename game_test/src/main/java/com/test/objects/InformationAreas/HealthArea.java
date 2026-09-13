@@ -13,6 +13,7 @@ public class HealthArea extends InformationArea{
 
     @Override
     public void update(Object object) {
+        if (!(object instanceof Player)) return;
         Player player = (Player) object;
         currentHealth = player.getHealth();
         int filledTiles = currentHealth * tiles.length / player.getMaxHealth();

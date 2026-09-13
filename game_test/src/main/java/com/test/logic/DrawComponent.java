@@ -43,6 +43,7 @@ public class DrawComponent {
 
         for (InformationArea infoArea : ui.getCurrentInfoFields()) {
             infoArea.update(ui.getPlayer());
+            infoArea.update(ui.getGameState());
         }
     }
 
