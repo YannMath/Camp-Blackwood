@@ -46,7 +46,7 @@ public class Movement {
         }
         else {
             new Sound().play("ouch.wav"); 
-            if (object instanceof Player player) player.receiveDamage(10); // TODO: Remove this. It only serves ui testing purposes
+            if (object instanceof Player player) player.receiveDamage(10); // TODO: Remove this in the final prototype. It only serves ui testing purposes
         }
     }
 }

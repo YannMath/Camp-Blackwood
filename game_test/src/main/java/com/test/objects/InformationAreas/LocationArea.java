@@ -1,29 +1,29 @@
 package com.test.objects.InformationAreas;
 
 import com.test.objects.InformationArea;
-import com.test.objects.Player;
 import com.test.objects.Tile;
+import com.test.objects.GameState;
 
-public class NameArea extends InformationArea {
-    String playerName;
-    
-    public NameArea(Tile[] tiles) {
+public class LocationArea extends InformationArea {
+    private String currentLocation;
+
+    public LocationArea(Tile[] tiles) {
         super(tiles);
     }
 
     @Override
     public void update(Object object) {
-        if (!(object instanceof Player)) return;
-        Player player = (Player) object;
-        playerName = player.getName();
-        int difference = tiles.length - playerName.length();
-        for (int i = 0; i < playerName.length(); i++) {
+        if (!(object instanceof GameState)) return;
+        GameState gs = (GameState) object;
+        currentLocation = gs.getLocation();
+        int difference = tiles.length - currentLocation.length();
+        for (int i = 0; i < currentLocation.length(); i++) {
             if (difference >= 0) {
-                for (int c = 0; c < playerName.length(); c++) {
-                    tiles[c].setChar(playerName.charAt(c)); 
+                for (int c = 0; c < currentLocation.length(); c++) {
+                    tiles[c].setChar(currentLocation.charAt(c)); 
                     tiles[c].setForeground(tiles[0].getForegroundColor());
                 }
-                for (int s = playerName.length(); s < tiles.length; s++) {
+                for (int s = currentLocation.length(); s < tiles.length; s++) {
                     tiles[s].setChar(' '); 
                     tiles[s].setForeground(tiles[0].getForegroundColor());
                 }
@@ -31,7 +31,7 @@ public class NameArea extends InformationArea {
             }
             else {
                 for (int c = 0; c < tiles.length; c++) {
-                    tiles[c].setChar(playerName.charAt(c)); 
+                    tiles[c].setChar(currentLocation.charAt(c)); 
                     tiles[c].setForeground(tiles[0].getForegroundColor());
                 }
                 tiles[tiles.length - 1].setChar('.');

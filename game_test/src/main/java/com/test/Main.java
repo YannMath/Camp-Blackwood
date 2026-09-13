@@ -13,7 +13,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        GameState gameSate = new GameState();
+        GameState gameSate = new GameState(3, 23, 23, 21, "Cabin"); // TODO: Add .lvl files which include these stats and convert them into game states
         Renderer renderer = new Renderer();
         Camera playerCamera = new Camera();
         playerCamera.setFovX(120);
@@ -75,6 +75,7 @@ public class Main {
                 renderer.renderGame(boards);
                 screen.refresh();    
 
+                gameSate.update(10);
                 Thread.sleep(50); // tick-rate
             }
         } finally {
