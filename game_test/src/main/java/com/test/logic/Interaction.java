@@ -1,5 +1,8 @@
 package com.test.logic;
 
-public class Interaction {
-    
+import com.test.objects.GameObject;
+
+@FunctionalInterface
+public interface Interaction {
+    void execute(GameObject actor, GameObject target);
 }

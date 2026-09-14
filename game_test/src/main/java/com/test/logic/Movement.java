@@ -41,7 +41,7 @@ public class Movement {
             object.setY(object.getY() + changeY);
 
             if (object instanceof Player p) {
-                Animation.animate(p, AnimationType.PLAYER_WALKING); // TODO: Make the animations work for other entities too
+                Animation.animateEntity(p, AnimationType.PLAYER_WALKING); // TODO: Make the animations work for other entities too
             }
         }
         else {

@@ -7,7 +7,7 @@ import java.util.Map;
 import com.test.enums.AnimationType;
 import com.test.objects.*;
 
-public class Animation {
+public class Animation {                                        // TODO: Redo the entire animation system (with a register etc.)
     private static final long FRAME_DURATION_MS = 140;
     private static final long MOVEMENT_TIMEOUT_MS = 180;
     private static final Map<AnimationType, Tilemap[]> frames = new EnumMap<>(AnimationType.class);
@@ -24,7 +24,7 @@ public class Animation {
         });
     }
 
-    public static void animate(Entity entity, AnimationType animation) {
+    public static void animateEntity(Entity entity, AnimationType animation) {
         AnimationState state = states.computeIfAbsent(entity, ignored -> new AnimationState());
         long now = System.currentTimeMillis();
 
@@ -49,7 +49,7 @@ public class Animation {
         if (state.currentAnimation == AnimationType.PLAYER_WALKING &&
             now - state.lastMovement >= MOVEMENT_TIMEOUT_MS) {
 
-            animate(entity, AnimationType.PLAYER_IDLE);
+            animateEntity(entity, AnimationType.PLAYER_IDLE);
             return;
         }
 
@@ -62,6 +62,10 @@ public class Animation {
             state.lastFrameChange = now;
             entity.setTilemap(animationFrames[state.currentFrame]);
         }
+    }
+
+    public static void animate(GameObject g, String animation) {
+        System.out.println("Wow you weren't even able to implement working animations yet you dumbass");
     }
 
     private static final class AnimationState {

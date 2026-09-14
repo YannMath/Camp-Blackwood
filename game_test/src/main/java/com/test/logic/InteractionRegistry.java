@@ -18,6 +18,6 @@ public class InteractionRegistry {
         if (interaction == null) {
             throw new IllegalStateException("Unknown interaction: " + name);
         }
-        //interaction.execute(actor, target);
+        interaction.execute(actor, target);
     }
 }

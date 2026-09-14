@@ -20,6 +20,8 @@ public class Main {
         playerCamera.setFovY(50);
         renderer.setCamera(playerCamera);
 
+        InteractionSetup.registerAll();
+
         List<Board> boards = new ArrayList<>();
         Board backgroundBoard = new Board(50, 120, 0, 0, false); 
         boards.add(backgroundBoard);
@@ -52,6 +54,7 @@ public class Main {
         playerCamera.follow(player);
         uiBoard.setPlayer(player);
         GameObject bomb2 = new GameObject("test-bomb", backgroundObjectsBoard, 40, 37);
+        bomb2.setInteraction("explode_bomb");
         gameObjects.add(bomb2);
         GameObject house = new GameObject("house", foregroundBoard, 20, 20);
         gameObjects.add(house);

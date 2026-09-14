@@ -5,6 +5,9 @@ F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\logic\ConvertTileMa
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\logic\ConvertUI.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\logic\DrawComponent.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\logic\Input.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\logic\Interaction.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\logic\InteractionRegistry.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\logic\InteractionSetup.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\logic\Movement.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\logic\Renderer.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\logic\Sound.java
@@ -14,9 +17,16 @@ F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Board.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Camera.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Entity.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\GameObject.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\GameState.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationArea.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationAreas\DateArea.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationAreas\DayArea.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationAreas\HealthArea.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationAreas\InformationAreaBuilder.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationAreas\LocationArea.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationAreas\MonthArea.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationAreas\NameArea.java
+F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\InformationAreas\TimeArea.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Interface.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Player.java
 F:\Terminal\First_Game_Test\game_test\src\main\java\com\test\objects\Tile.java
