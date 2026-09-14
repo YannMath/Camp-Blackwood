@@ -40,11 +40,12 @@ public class Movement {
             object.setX(object.getX() + changeX);
             object.setY(object.getY() + changeY);
 
-            if (object instanceof Entity entity) {
-                Animation.animate(entity, AnimationType.PLAYER_WALKING); // TODO: Make the animations work for other entities too
+            if (object instanceof Player p) {
+                Animation.animate(p, AnimationType.PLAYER_WALKING); // TODO: Make the animations work for other entities too
             }
         }
         else {
+            if (object instanceof Entity && Validation.checkInteraction((Entity)object, changeX, changeY, boards)) return;
             new Sound().play("ouch.wav"); 
             if (object instanceof Player player) player.receiveDamage(10); // TODO: Remove this in the final prototype. It only serves ui testing purposes
         }

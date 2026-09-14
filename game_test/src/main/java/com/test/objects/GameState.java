@@ -8,7 +8,7 @@ public class GameState {
     private int month;
     private int year = 0; // Not relevant for gameplay
 
-    private String location; // TODO: Make a whole location class and add it here
+    private String location; // TODO: Make a whole location class (.lvl) and add it here
 
     public GameState(int m, int d, int h, int min, String location) {
         this.month = m;
