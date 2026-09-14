@@ -74,9 +74,7 @@ public class Validation {
             int currentBoardIdx = boards.indexOf(e.getBoard());
             if (currentBoardIdx == -1) return false;
 
-            List<Board> relevantBoards = (changeY > 0) 
-                ? boards.subList(0, currentBoardIdx)                  
-                : boards.subList(currentBoardIdx, boards.size());      
+            List<Board> relevantBoards = boards.subList(0, currentBoardIdx);
 
             Tile[] bottomRow = e.getTiles()[e.getTiles().length - 1]; // only checks last row if player moves vertically
 
