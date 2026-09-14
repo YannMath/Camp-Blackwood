@@ -17,28 +17,26 @@ public class NameArea extends InformationArea {
         Player player = (Player) object;
         playerName = player.getName();
         int difference = tiles.length - playerName.length();
-        for (int i = 0; i < playerName.length(); i++) {
-            if (difference >= 0) {
-                for (int c = 0; c < playerName.length(); c++) {
-                    tiles[c].setChar(playerName.charAt(c)); 
-                    tiles[c].setForeground(tiles[0].getForegroundColor());
-                }
-                for (int s = playerName.length(); s < tiles.length; s++) {
-                    tiles[s].setChar(' '); 
-                    tiles[s].setForeground(tiles[0].getForegroundColor());
-                }
-
+        if (difference >= 0) {
+            for (int c = 0; c < playerName.length(); c++) {
+                tiles[c].setChar(playerName.charAt(c)); 
+                tiles[c].setForeground(tiles[0].getForegroundColor());
             }
-            else {
-                for (int c = 0; c < tiles.length; c++) {
-                    tiles[c].setChar(playerName.charAt(c)); 
-                    tiles[c].setForeground(tiles[0].getForegroundColor());
-                }
-                tiles[tiles.length - 1].setChar('.');
-                tiles[tiles.length - 2].setChar('.');
-                tiles[tiles.length - 3].setChar('.');
-                return;
+            for (int s = playerName.length(); s < tiles.length; s++) {
+                tiles[s].setChar(' '); 
+                tiles[s].setForeground(tiles[0].getForegroundColor());
             }
+        
+        }
+        else {
+            for (int c = 0; c < tiles.length; c++) {
+                tiles[c].setChar(playerName.charAt(c)); 
+                tiles[c].setForeground(tiles[0].getForegroundColor());
+            }
+            tiles[tiles.length - 1].setChar('.');
+            tiles[tiles.length - 2].setChar('.');
+            tiles[tiles.length - 3].setChar('.');
+            return;
         }
     }
 }

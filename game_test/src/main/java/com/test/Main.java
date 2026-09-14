@@ -23,6 +23,8 @@ public class Main {
         List<Board> boards = new ArrayList<>();
         Board backgroundBoard = new Board(50, 120, 0, 0, false); 
         boards.add(backgroundBoard);
+        Board backgroundObjectsBoard = new Board(50, 120, 0, 0, true); 
+        boards.add(backgroundObjectsBoard);
         Board entityBoard = new Board(50, 120, 0, 0, true);     
         boards.add(entityBoard);
         Board foregroundBoard = new Board(50, 120, 0, 0, true); 
@@ -49,8 +51,8 @@ public class Main {
         entities.add(player);
         playerCamera.follow(player);
         uiBoard.setPlayer(player);
-        GameObject bomb = new GameObject("test-bomb", foregroundBoard, 30, 37);
-        gameObjects.add(bomb);
+        GameObject bomb2 = new GameObject("test-bomb", backgroundObjectsBoard, 40, 37);
+        gameObjects.add(bomb2);
         GameObject house = new GameObject("house", foregroundBoard, 20, 20);
         gameObjects.add(house);
 
