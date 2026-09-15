@@ -62,6 +62,8 @@ public class Main {
         Movement.init(player, boards);
         Animation.init();
 
+        new Sound().playBackground("fragments-of-time.mp3");
+
         try {
             boolean running = true;
 
